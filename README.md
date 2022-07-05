@@ -16,4 +16,5 @@ How to use:
 I dont know if you need to update offsets anyway.
 
 UPDATES:
+V2.0 -> Updated all offsets + added a lil anti-paste bc me mean:) 
 V1.0 -> Posted This
