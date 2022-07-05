@@ -9,6 +9,9 @@
 struct TableInfo
 {
 	static vec_t                          getWidth(), getHeight();
+	static BYTE                           areTableCushionsActive();
+	static UINT32                         getTableCushions();
+	static UINT32                         getTablePockets();
 	static const std::vector<Vector2D>&   getTableShape();
 	static const std::array<Vector2D, 6>& getPocketsPositions();
 
@@ -28,5 +31,14 @@ struct TableInfo
 	static constexpr vec_t getActualHeight() { return 127; /*gameModuleBase + 0x34E90E0*/ }
 	static constexpr vec_t getTableBoundX()  { return getActualWidth()  / 2.0 - Ball::getRadius(); }
 	static constexpr vec_t getTableBoundY()  { return getActualHeight() / 2.0 - Ball::getRadius(); }
-};
 
+	static const std::array<std::pair<UINT16, UINT16>, 36>& getCushions();
+
+private:
+	struct Offsets
+	{
+		static constexpr UINT32 TablePockets           = 0x3F8UL;
+		static constexpr UINT32 TableCushions          = 0x3FCUL;
+		static constexpr UINT32 areTableCushionsActive = 0x400UL;
+	};
+};

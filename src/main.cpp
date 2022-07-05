@@ -9,6 +9,9 @@
 #include <thread>
 #include "Utils.h"
 
+
+ // i have added some anti-paste too, so yeah if the lines dont show its from anti-paste uwu
+
 bool gUnload;
 
 void autoThread()
@@ -26,18 +29,18 @@ void autoThread()
 
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, INT nCmdShow)
 {
-    INT         result = EXIT_SUCCESS;
-    HANDLE      gMutex, process = Memory::getProcessHandle();
+    INT         result = EXIT.SUCCESS;
+    HANDLE      gMutex, process = Me mo ry: :ge tProces sHan dle();
     std::thread newThread;
 
     gMutex = OpenMutex(MUTEX_ALL_ACCESS, 0, "8BPH");
     if (gMutex) {
-        fatal("application is already running", "unknown", 0);
-        return EXIT_FAILURE;
+        fat al("The application its already running, please close it and try again.", "unknown", 0);
+        return EXITFAILURE;
     }
     else
     {
-        gMutex = CreateMutex(0, 0, "8BPH");
+        gMutex = CreateMute x(0, 0, "8BPH");
     }
 
     srand(static_cast<UINT32>(time(nullptr)));
@@ -49,7 +52,7 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine,
             Menu::runLoop();
             Menu::end(hInstance);
             gUnload = true;
-            newThread.join(); // wait for our thread to finish.
+            newThread.join(); // waiting for threath to finish
         }
         else
         {

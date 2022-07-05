@@ -58,6 +58,8 @@ void drawAimLine()
     Prediction::PredictionInfo*    predictionInfo;
     const std::array<Vector2D, 6>* pocketsPositions;
 
+
+// here is the prediction one
     if (GameManager::isPlayerTurn() && gPrediction->init()) {
         if (gGlobalVars->features.esp.predicionPath) {
             countA = gBalls->getCount();

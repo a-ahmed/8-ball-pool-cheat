@@ -1,111 +1,32 @@
-#include "TableInfo.h"
-#include "GameManager.h"
-#include "GlobalVars.h"
-#include "Memory.h"
+#pragma once
 
-#include "OneTimeAssignment.h"
+#include "Vector.h"
+#include "Ball.h"
 
-static Vector2D                                   size{};
-static Vector4D                                   position{};
-static OneTimeAssignment<std::vector<Vector2D>>   tableShape{};
-static OneTimeAssignment<std::array<Vector2D, 6>> pocketsPositions{};
+#include <array>
+#include <vector>
 
-void TableInfo::Position::set(vec_t x, vec_t y, vec_t z, vec_t w)
+struct TableInfo
 {
-    position.x = x;
-    position.y = y;
-    position.z = z;
-    position.w = w;
-}
+	static vec_t                          getWidth(), getHeight();
+	static const std::vector<Vector2D>&   getTableShape();
+	static const std::array<Vector2D, 6>& getPocketsPositions();
 
-void TableInfo::setSize(vec_t x, vec_t y)
-{
-    size.x = x;
-    size.y = y;
-}
+	static void setSize(vec_t x, vec_t y);
 
-vec_t TableInfo::Position::left()
-{
-    return position.x;
-}
+	struct Position
+	{
+		static vec_t left();
+		static vec_t top();
+		static vec_t right();
+		static vec_t bottom();
+		static void  set(vec_t x, vec_t y, vec_t z, vec_t w);
+	};
 
-vec_t TableInfo::Position::top()
-{
-    return position.y;
-}
+	static constexpr vec_t getPocketRadius() { return 8.0; /*gameModuleBase + 0x34E90F0*/ }
+	static constexpr vec_t getActualWidth()  { return 254; /*gameModuleBase + 0x34E90E8*/ }
+	static constexpr vec_t getActualHeight() { return 127; /*gameModuleBase + 0x34E90E0*/ }
+	static constexpr vec_t getTableBoundX()  { return getActualWidth()  / 2.0 - Ball::getRadius(); }
+	static constexpr vec_t getTableBoundY()  { return getActualHeight() / 2.0 - Ball::getRadius(); }
+};
 
-vec_t TableInfo::Position::right()
-{
-    return position.z;
-}
-
-vec_t TableInfo::Position::bottom()
-{
-    return position.w;
-}
-
-vec_t TableInfo::getWidth()
-{
-    return size.x;
-}
-
-vec_t TableInfo::getHeight()
-{
-    return size.y;
-}
-
-const std::array<Vector2D, 6>& TableInfo::getPocketsPositions()
-{
-    PVOID  buffer;
-    SIZE_T table, tableProperties, pockets, bufferSize;
-
-    if (pocketsPositions.canAssign()) {
-        table           = GameManager::getTable();
-        tableProperties = gGlobalVars->memory->read<SIZE_T>(table + 0x284UL);
-        if (tableProperties) {
-            pockets = gGlobalVars->memory->read<SIZE_T>(tableProperties + 0x34UL);
-            if (pockets) {
-                bufferSize = sizeof(Vector2D) * maxPocketCount;
-                buffer = malloc(bufferSize);
-                if (buffer) {
-                    if (gGlobalVars->memory->read(pockets, buffer, bufferSize)) {
-                        memcpy(&pocketsPositions.data[0].x, buffer, bufferSize);
-                        pocketsPositions.postAssignment();
-                    }
-
-                    free(buffer);
-                }
-            }
-        }
-    }
-
-    return pocketsPositions.get();
-}
-
-const std::vector<Vector2D>& TableInfo::getTableShape()
-{
-    PVOID  buffer;
-    SIZE_T table, vecStartAddr, vecEndAddr, vecSize;
-
-    if (tableShape.canAssign()) {
-        table = GameManager::getTable();
-        vecStartAddr = gGlobalVars->memory->read<SIZE_T>(table + 0x2A4UL);
-        vecEndAddr   = gGlobalVars->memory->read<SIZE_T>(table + 0x2A4UL + 4UL);
-        vecSize      = vecEndAddr - vecStartAddr;
-        if (vecStartAddr && vecEndAddr) {
-            buffer = malloc(vecSize);
-            if (buffer) {
-                if (gGlobalVars->memory->read(vecStartAddr, buffer, vecSize)) {
-                    tableShape.data.reserve(vecSize >> 4);
-                    tableShape.data.resize(vecSize >> 4);
-                    memcpy(&tableShape.data[0].x, buffer, vecSize);
-                    tableShape.postAssignment();
-                }
-
-                free(buffer);
-            }
-        }
-    }
-
-    return tableShape.get();
-}

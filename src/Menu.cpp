@@ -24,8 +24,9 @@ void CleanupDeviceD3D();
 void ResetDevice();
 LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-constexpr auto* windowName      = _T("Fixed by AC");
+constexpr auto* windowName      = _T("Menu");
 constexpr auto* windowClassName = _T("unknown");
+
 
 namespace gFonts
 {
