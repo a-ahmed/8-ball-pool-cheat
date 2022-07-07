@@ -16,7 +16,7 @@ https://cdn.discordapp.com/attachments/979095925542776923/983115157246992394/unk
 
 How to use:
 1. Open the sln file
-2. Put Relase x64
+2. Put Relase x86
 3. do CTRL+B
 
 I dont know if you need to update offsets anyway.
