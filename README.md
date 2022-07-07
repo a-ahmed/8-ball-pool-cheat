@@ -2,7 +2,11 @@
 
 I apologise for the name
 
-Hello, this is just a fixed source i have nothing to do with him, atm. Have a nice day.
+WORKING ONLY FOR:
+
+8 BALL POOL 5.7.1 ( WORKING ON UPDATING IT TO V5.8.0)
+
+WINDOWS 10 1909+
 
 Photos:
 https://cdn.discordapp.com/attachments/976573206360113162/983119408618692618/unknown.png
