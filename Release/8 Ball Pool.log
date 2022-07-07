@@ -1,0 +1,30 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (8 Ball Pool.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  AdsManager.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_dx9.cpp
+  imgui_impl_win32.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  main.cpp
+  GameManager.cpp
+  GlobalVars.cpp
+  Ball.cpp
+  Balls.cpp
+  GUI.cpp
+  Memory.cpp
+C:\Users\ac\Desktop\v2.0\src\Memory.cpp(82,33): warning C4101: 'j': unreferenced local variable
+  GenericData.cpp
+  Menu.cpp
+  Prediction.cpp
+  TableInfo.cpp
+  Utils.cpp
+  Compiling...
+  Vector.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 2488 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+D2DOverlay.lib(Source.obj) : warning LNK4099: PDB 'D2DOverlay.pdb' was not found with 'D2DOverlay.lib(Source.obj)' or at 'C:\Users\ac\Desktop\v2.0\Release\D2DOverlay.pdb'; linking object as if no debug info
+  8 Ball Pool.vcxproj -> C:\Users\ac\Desktop\v2.0\Release\ac source.exe
