@@ -16,5 +16,9 @@ How to use:
 I dont know if you need to update offsets anyway.
 
 UPDATES:
-V2.0 -> Updated all offsets + added a lil anti-paste bc me mean:) 
-V1.0 -> Posted This
+3. V3.0 -> Fixed all issues + Removed Anti-Paste bc its nott nice:)
+
+2. V2.0 -> Updated all offsets + added a lil anti-paste bc me mean:) 
+
+
+1. V1.0 -> Posted This
