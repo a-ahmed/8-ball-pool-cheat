@@ -1,6 +1,6 @@
-# Alaa-8ball-pool-source-exposed
+# 8-ball-pool-cheat
 
-I apologise for the name
+AT THE MOMENT THIS REPO ITS UPDATING COME BACK IN 5-6 DAYS!!!!!
 
 DM ME ON DISCORD FOR THE 2 LAST FILES I COULDNT UPLOAD THEM: ac#0142
 
