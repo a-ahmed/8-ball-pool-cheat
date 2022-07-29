@@ -14,6 +14,9 @@ How to use:
 I dont know if you need to update offsets anyway.
 
 UPDATES:
+
+4. V4.0 -> Fixed all Issues + Going to add new offsets in [V4.5]
+
 3. V3.0 -> Fixed all issues + Removed Anti-Paste bc its nott nice:)
 
 2. V2.0 -> Updated all offsets + added a lil anti-paste bc me mean:) 
